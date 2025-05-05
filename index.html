@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Shopping Site for Mobile</title>
+  <link rel="icon"
+    href="https://assets.onecompiler.app/42zhuec4k/43gnzmzdm/org.chromium.webapk.a83f8ed661b7a33d4_v2-1.png"
+    type="image/x-icon">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #F1F2F4;
+    }
+
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+      background-color: #ffffff;
+      z-index: 1000;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .logo input {
+      width: 500px;
+      padding: 10px 20px;
+      border: 1px solid #F0F5FF;
+      border-radius: 10px;
+      outline: none;
+      background-color: #F0F5FF;
+      font-size: 16px;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .cart {
+      display: flex;
+      align-items: center;
+      padding: 5px 10px;
+      border-radius: 5px;
+      background-color: #ffffff;
+      transition: background-color 0.3s ease;
+    }
+
+    .cart a {
+      text-decoration: none;
+      color: #000;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    img.icon {
+      width: 25px;
+      height: 30px;
+    }
+
+    main {
+      padding: 70px 15px;
+      background-color: #F1F2F4;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      background-color: #ffffff;
+      padding: 15px 0px;
+      width: 100%;
+    }
+
+    .image {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100px;
+    }
+
+    .image img {
+      width: 62px;
+      height: 62px;
+
+    }
+
+
+    .image p {
+      font-size: 15px;
+      color: #000;
+      margin-top: 8px;
+      text-align: center;
+    }
+
+    .image1 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .image1 img {
+      width: 100%;
+    }
+
+    .container1,
+    .container2,
+    .container3 {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 110px;
+      background-color: #ffffff;
+      padding-bottom: 10px;
+      width: 100%;
+      margin-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    .image2,
+    .image3 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100px;
+      margin-top: 20px;
+    }
+    .image2 img,
+    .image3 img {
+      width: 140px;
+      height: 140px;
+      
+    }
+    .image2 img:hover,
+    .image3 img:hover {
+      transform: scale(1.1);
+      transition: transform 0.3s ease;
+    }
+
+    .image2,
+    .image3 p {
+      font-size: 15px;
+      color: #000;
+      margin-top: 1 0px;
+      text-align: center;
+    }
+
+    @media(max-width: 768px) {
+  .nav {
+    flex-direction: row;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0px;
+  }
+  
+
+  .logo {
+    flex-direction: column;
+    gap: 10px;
+    width: 25%;
+  }
+  .logo img {
+    width: 80%;
+    
+  }
+
+  .logo input {
+    width: auto;
+    margin-left: 280px;
+    align-items: center;
+    max-width: 100;
+  }
+
+  .nav-link {
+  
+    flex-direction: row;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 50px;
+  }
+
+  main {
+    padding: 125px 10px;
+  }
+
+  .container{ 
+    gap: 30px;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 0;
+  }
+  .container1,
+  .container2,
+  .container3 {
+    gap: 60px;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+  }
+
+  .image,
+  .image2,
+  .image3 {
+    margin-top: 0px;
+    width: 80px;
+  }
+
+  .image1 img {
+    
+    width: 100%;
+    height: 100px;
+  }
+  .image2 img {
+    
+    width: 100px;
+  }
+
+  .cart a {
+    font-size: 14px;
+  }
+
+  .icon img {
+    width: 20px;
+    height: 25px;
+  }
+}
+
+
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="nav">
+      <div class="logo">
+        <img
+          src="https://assets.onecompiler.app/42zhuec4k/43gtmwzgm/Capture1-Picsart-AiImageEnhancer.PNG"
+          alt="Logo" width="120px" height="50px">
+        <input type="text" placeholder="Search for products, brands and more">
+      </div>
+
+      <div class="nav-link">
+        <div class="cart">
+          <a href="#">
+            <img class="icon"
+              src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/profile-52e0dc.svg"
+              alt="Login Icon">
+            LogIn
+          </a>
+        </div>
+
+        <div class="cart">
+          <a href="#">
+            <img class="icon"
+              src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/header_cart-eed150.svg"
+              alt="Cart Icon">
+            Cart
+          </a>
+        </div>
+
+        <div class="cart">
+          <a href="#">
+            <img class="icon"
+              src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/Store-9eeae2.svg"
+              alt="Sell Icon">
+            Become a Seller
+          </a>
+        </div>
+
+        <div class="cart">
+          <a href="#">
+            <img class="icon" src="https://cdn-icons-png.flaticon.com/128/10561/10561018.png" alt="More Options Icon"
+              width="30" style="margin-right: 20px;">
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <div class="image">
+        <img src="https://rukminim1.flixcart.com/fk-p-flap/93/93/image/75ac28a1e9192898.png?q=100" alt="Category">
+        <p>Top Offers</p>
+      </div>
+
+      <div class="image">
+        <img src="https://rukminim1.flixcart.com/fk-p-flap/84/84/image/cd6aca4f61e8ea95.png?q=100" alt="Category">
+        <p>Mobiles & Tablets</p>
+      </div>
+
+      <div class="image">
+        <img src="https://rukminim1.flixcart.com/fk-p-flap/84/84/image/9c64dfa667885ca9.png?q=100" alt="Category">
+        <p>TVs & Appliances</p>
+      </div>
+
+      <div class="image">
+        <img src="https://rukminim1.flixcart.com/fk-p-flap/84/84/image/4d6b13d5a0e0724a.png?q=100" alt="Category">
+        <p>Electronics</p>
+      </div>
+
+      <div class="image">
+        <img src="https://rukminim1.flixcart.com/fk-p-flap/84/84/image/ec2982e5564fe07c.png?q=100" alt="Category">
+        <p>Fashion</p>
+      </div>
+
+      <div class="image">
+        <img src="https://rukminim1.flixcart.com/fk-p-flap/84/84/image/8aa98ff80927c17b.png?q=100" alt="Category">
+        <p>Beauty, Food...</p>
+      </div>
+
+      <div class="image">
+        <img src="https://rukminim1.flixcart.com/fk-p-flap/84/84/image/febcb9896245caf4.png?q=100" alt="Category">
+        <p>Home & Kitchen</p>
+      </div>
+
+      <div class="image">
+        <img src="https://rukminim1.flixcart.com/fk-p-flap/84/84/image/cddd92e134ba3ea9.png?q=100" alt="Category">
+        <p>Furniture</p>
+      </div>
+
+      <div class="image">
+        <img src="https://rukminim1.flixcart.com/fk-p-flap/84/84/image/b003cdccee1093e4.png?q=100" alt="Category">
+        <p>Travel</p>
+      </div>
+
+      <div class="image">
+        <img src="https://rukminim1.flixcart.com/fk-p-flap/84/84/image/2ebb95ec20eae8f1.png?q=100" alt="Category">
+        <p>Grocery</p>
+      </div>
+    </div>
+
+    <div class="image1">
+      <img src="https://rukminim1.flixcart.com/fk-p-flap/1620/270/image/6d77f08d0d510f69.jpg?q=20" alt="Banner">
+    </div>
+
+    <div class="container1">
+
+      <div class="image2">
+        <h3 style="margin: 0px; padding: 0px; width: 200px;">Best of Electronics</h3>
+        <img
+          src="https://rukminim2.flixcart.com/image/612/612/xif0q/headphone/m/x/o/-original-imagt5cwzxknqpbu.jpeg?q=70"
+          alt="Category" style="margin-top: 20px;">
+        <div>
+          <p>Best Truewireless..</p>
+          <p style="color: #000000; font-size: 14px;  font-weight: 600;">Shop Now!</p>
+        </div>
+      </div>
+
+      <div class="image2">
+        <img
+          src="https://rukminim2.flixcart.com/image/312/312/xif0q/monitor/m/z/k/xz306c-x-wfhd-29-5-2023-um-rx6si-x01-acer-original-imagqjhfpzgszewh.jpeg?q=70"
+          alt="Category" style=" margin-top: 60px;">
+        <div>
+          <p>Monitors</p>
+          <p style="color: #000000; font-size: 14px;  font-weight: 600;">From
+            ₹6599</p>
+        </div>
+      </div>
+
+      <div class="image2">
+        <img
+          src="https://rukminim2.flixcart.com/image/612/612/xif0q/smartwatch/0/8/b/-original-imah6s6p6zkhfnws.jpeg?q=70"
+          alt="Category" style=" margin-top: 48px;">
+        <div>
+          <p>Watch</p>
+          <p style="color: #000000; font-size: 14px;  font-weight: 600;">From
+            ₹1499</p>
+        </div>
+      </div>
+
+      <div class="image2">
+        <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/printer/s/8/d/-original-imafkykednshkhx5.jpeg?q=70"
+          alt="Category" style=" margin-top: 56px;">
+        <div>
+          <p>Printer</p>
+          <p style="color: #000000; font-size: 14px;  font-weight: 600;">From
+            ₹ 3999</p>
+        </div>
+      </div>
+
+      <div class="image2">
+        <img
+          src="https://rukminim2.flixcart.com/image/612/612/xif0q/projector/n/l/l/atom-4x-android-13-fully-automatic-1080p-native-4k-hdr-hlg-400-original-imahasmpgbtgmbyk.jpeg?q=70"
+          alt="Category" style="margin-top: 55px;">
+        <div>
+          <p>Projector</p>
+          <p style="color: #000000; font-size: 14px;  font-weight: 600;">From
+            ₹6990</p>
+        </div>
+      </div>
+
+      <div class="image2">
+        <img
+          src="https://rukminim2.flixcart.com/image/312/312/kw9krrk0/dslr-camera/q/l/w/-original-imag8z5wwaqtq9bz.jpeg?q=70"
+          alt="Category" style=" margin-top: 38px;">
+        <div>
+          <p>Top Mirrorless came...</p>
+          <p style="color: #000000; font-size: 14px;  font-weight: 600;">Shop Now!</p>
+        </div>
+
+      </div>
+
+      
+
+    </div>
+    <div>
+      <div class="container2">
+
+        <div class="image3">
+          <h3 style="margin-left: 100px; padding: 0px; width: 260px;">Best Deals on Smartphones</h3>
+          <img
+            src="https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/d/0/p/-original-imahbpk4hc2zgduy.jpeg?q=70"
+            alt="Category" style=" margin-top: 20px;">
+          <div>
+            <p>Samsung Galaxy S24</p>
+            <p style="color: #000000; font-size: 14px;  font-weight: 600;">From ₹44,999*</p>
+          </div>
+        </div>
+
+        <div class="image3">
+          <img
+            src="https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/n/l/u/-original-imah2fjd7wfd9ksh.jpeg?q=70"
+            alt="Category" style=" margin-top: 85px;">
+          <div>
+            <p>Motrola G85</p>
+            <p style="color: #000000; font-size: 14px;  font-weight: 600;">Just
+              ₹14,999*</p>
+          </div>
+        </div>
+
+        <div class="image3">
+          <img
+            src="https://rukminim2.flixcart.com/image/312/312/ktketu80/mobile/8/z/w/iphone-13-mlph3hn-a-apple-original-imag6vzzhrxgazsg.jpeg?q=70"
+            alt="Category" style="margin-top: 75px;">
+          <div>
+            <p>Apple iphone 13</p>
+            <p style="color: #000000; font-size: 14px;  font-weight: 600;">From
+              ₹39,999*</p>
+          </div>
+        </div>
+
+        <div class="image3">
+          <img
+            src="https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/j/t/v/-original-imahavdv28z4nrkn.jpeg?q=70"
+            alt="Category" style=" margin-top: 80px;">
+          <div>
+            <p>Vivo T4x 5G</p>
+            <p style="color: #000000; font-size: 14px;  font-weight: 600;">From
+              ₹13,499*</p>
+          </div>
+        </div>
+
+        <div class="image3">
+          <img
+            src="https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/j/o/z/-original-imah4qke9gf7jhfg.jpeg?q=70"
+            alt="Category" style="margin-top: 80px;">
+          <div>
+            <p>Oppo K12x 5G</p>
+            <p style="color: #000000; font-size: 14px;  font-weight: 600;">From
+              ₹10,999*</p>
+          </div>
+        </div>
+
+        <div class="image3">
+          <img
+            src="https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/j/n/1/-original-imah9gtmya9qhqse.jpeg?q=70"
+            alt="Category" style="margin-top: 80px;">
+          <div>
+            <p>Realme P3x 5G</p>
+            <p style="color: #000000; font-size: 14px;  font-weight: 600;">From
+              ₹13,999*</p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+    <div>
+
+      <div class="container3">
+
+        <div class="image2">
+          <h3 style="margin: 0px; padding: 0px; width: 200px;">Best of Electronics</h3>
+          <img
+            src="https://rukminim2.flixcart.com/image/612/612/xif0q/headphone/m/x/o/-original-imagt5cwzxknqpbu.jpeg?q=70"
+            alt="Category" style="margin-top: 20px;">
+          <div>
+            <p>Best Truewireless..</p>
+            <p style="color: #000000; font-size: 14px;  font-weight: 600;">Shop Now!</p>
+          </div>
+        </div>
+
+        <div class="image2">
+          <img
+            src="https://rukminim2.flixcart.com/image/312/312/xif0q/monitor/m/z/k/xz306c-x-wfhd-29-5-2023-um-rx6si-x01-acer-original-imagqjhfpzgszewh.jpeg?q=70"
+            alt="Category" style="margin-top: 60px;">
+          <div>
+            <p>Monitors</p>
+            <p style="color: #000000; font-size: 14px;  font-weight: 600;">From
+              ₹6599</p>
+          </div>
+        </div>
+
+        <div class="image2">
+          <img
+            src="https://rukminim2.flixcart.com/image/612/612/xif0q/smartwatch/0/8/b/-original-imah6s6p6zkhfnws.jpeg?q=70"
+            alt="Category" style=" margin-top: 48px;">
+          <div>
+            <p>Watch</p>
+            <p style="color: #000000; font-size: 14px;  font-weight: 600;">From
+              ₹1499</p>
+          </div>
+        </div>
+
+        <div class="image2">
+          <img
+            src="https://rukminim2.flixcart.com/image/612/612/xif0q/printer/s/8/d/-original-imafkykednshkhx5.jpeg?q=70"
+            alt="Category" style=" margin-top: 56px;">
+          <div>
+            <p>Printer</p>
+            <p style="color: #000000; font-size: 14px;  font-weight: 600;">From
+              ₹ 3999</p>
+          </div>
+        </div>
+
+        <div class="image2">
+          <img
+            src="https://rukminim2.flixcart.com/image/612/612/xif0q/projector/n/l/l/atom-4x-android-13-fully-automatic-1080p-native-4k-hdr-hlg-400-original-imahasmpgbtgmbyk.jpeg?q=70"
+            alt="Category" style=" margin-top: 55px;">
+          <div>
+            <p>Projector</p>
+            <p style="color: #000000; font-size: 14px;  font-weight: 600;">From
+              ₹6990</p>
+          </div>
+        </div>
+
+        <div class="image2">
+          <img
+            src="https://rukminim2.flixcart.com/image/312/312/kw9krrk0/dslr-camera/q/l/w/-original-imag8z5wwaqtq9bz.jpeg?q=70"
+            alt="Category" style=" margin-top: 38px;">
+          <div>
+            <p>Top Mirrorless came...</p>
+            <p style="color: #000000; font-size: 14px;  font-weight: 600;">Shop Now!</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>
